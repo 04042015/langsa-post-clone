@@ -67,34 +67,38 @@ const NewsGrid = () => {
 
   return (
     <section className="container mx-auto px-4 py-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {/* Featured large article */}
-        <div className="lg:col-span-2">
-          <NewsCard 
-            {...newsData[0]}
-            isLarge={true}
-          />
-        </div>
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        <div className="lg:col-span-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Featured large article */}
+            <div className="lg:col-span-2">
+              <NewsCard 
+                {...newsData[0]}
+                isLarge={true}
+              />
+            </div>
 
-        {/* Secondary articles */}
-        <div className="space-y-6">
-          <NewsCard {...newsData[1]} />
-          <NewsCard {...newsData[2]} />
-        </div>
+            {/* Secondary articles */}
+            <div className="space-y-6">
+              <NewsCard {...newsData[1]} />
+              <NewsCard {...newsData[2]} />
+            </div>
 
-        {/* Regular grid articles */}
-        {newsData.slice(3).map((article) => (
-          <NewsCard 
-            key={article.id}
-            {...article}
-          />
-        ))}
-      </div>
+            {/* Regular grid articles */}
+            {newsData.slice(3).map((article) => (
+              <NewsCard 
+                key={article.id}
+                {...article}
+              />
+            ))}
+          </div>
 
-      {/* Advertisement placeholder */}
-      <div className="mt-8 text-center">
-        <div className="bg-gray-100 rounded-lg py-8 px-4 text-gray-500">
-          Advertisement
+          {/* Advertisement placeholder */}
+          <div className="mt-8 text-center">
+            <div className="bg-gray-100 rounded-lg py-8 px-4 text-gray-500">
+              Advertisement
+            </div>
+          </div>
         </div>
       </div>
     </section>

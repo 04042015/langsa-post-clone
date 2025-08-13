@@ -2,7 +2,11 @@ import { Search, Facebook, Twitter, Instagram, Youtube, Linkedin } from "lucide-
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
-const Header = () => {
+interface HeaderProps {
+  onNetworkClick: () => void;
+}
+
+const Header = ({ onNetworkClick }: HeaderProps) => {
   const navigationItems = [
     "News",
     "Ekobiz", 
@@ -67,7 +71,12 @@ const Header = () => {
               />
               <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-white/70" />
             </div>
-            <Button variant="secondary" size="sm" className="bg-white text-primary hover:bg-white/90">
+            <Button 
+              variant="secondary" 
+              size="sm" 
+              className="bg-white text-primary hover:bg-white/90"
+              onClick={onNetworkClick}
+            >
               🌐 Network
             </Button>
           </div>

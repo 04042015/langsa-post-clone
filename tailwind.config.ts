@@ -52,6 +52,13 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// News website colors
+				'news-red': 'hsl(var(--news-red))',
+				'news-red-dark': 'hsl(var(--news-red-dark))',
+				'breaking-news': 'hsl(var(--breaking-news))',
+				'category-news': 'hsl(var(--category-news))',
+				'category-spotlight': 'hsl(var(--category-spotlight))',
+				'category-lifestyle': 'hsl(var(--category-lifestyle))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',

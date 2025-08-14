@@ -14,9 +14,6 @@ const Footer = () => {
     { name: "Z Campus", count: "287" }
   ];
 
-  const mediaPartners = [
-    "KompasTV", "MetroTV", "ANTV", "RCTI", "SCTV", "Trans7", "tvOne", "NET TV"
-  ];
 
   return (
     <footer className="bg-gray-900 text-white">
@@ -80,20 +77,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Media Partners */}
-        <div className="mt-12 pt-8 border-t border-gray-700">
-          <h3 className="text-lg font-bold mb-4 text-center text-primary">Media Partners</h3>
-          <div className="flex flex-wrap justify-center items-center gap-6">
-            {mediaPartners.map((partner, index) => (
-              <div
-                key={index}
-                className="bg-gray-800 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-700 transition-colors cursor-pointer"
-              >
-                {partner}
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
 
       {/* Copyright */}

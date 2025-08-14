@@ -26,22 +26,25 @@ const Header = ({ onNetworkClick }: HeaderProps) => {
       <div className="bg-primary border-b border-primary-foreground/20">
         <div className="container mx-auto px-4 py-2">
           <div className="flex items-center justify-between text-sm">
-            <div className="flex items-center gap-2">
-              <div className="bg-white text-primary px-3 py-1 rounded text-xs font-bold">
+            <div className="flex items-center gap-2 flex-1 overflow-hidden">
+              <div className="bg-white text-primary px-3 py-1 rounded text-xs font-bold shrink-0">
                 ⚡ BREAKING NEWS
               </div>
-              <span className="hidden md:block">
-                Pemerintah Umumkan Kebijakan Baru untuk Perekonomian Nasional
-              </span>
+              <div className="hidden md:block overflow-hidden">
+                <span className="breaking-news-scroll inline-block">
+                  Pemerintah Umumkan Kebijakan Baru untuk Perekonomian Nasional • DPR Setujui RUU Omnibus Law Terbaru • Indonesia Raih Medali Emas di Kejuaraan Dunia
+                </span>
+              </div>
             </div>
-            <div className="flex items-center gap-4">
-              <span className="text-xs">RABU, 13/08/2025 | FOLLOW US:</span>
-              <div className="flex items-center gap-2">
-                <Facebook className="w-4 h-4 hover:text-white/80 cursor-pointer" />
-                <Twitter className="w-4 h-4 hover:text-white/80 cursor-pointer" />
-                <Instagram className="w-4 h-4 hover:text-white/80 cursor-pointer" />
-                <Youtube className="w-4 h-4 hover:text-white/80 cursor-pointer" />
-                <Linkedin className="w-4 h-4 hover:text-white/80 cursor-pointer" />
+            <div className="flex items-center gap-2 md:gap-4 shrink-0">
+              <span className="text-xs hidden lg:block">RABU, 13/08/2025 | FOLLOW US:</span>
+              <span className="text-xs lg:hidden">FOLLOW:</span>
+              <div className="flex items-center gap-1 md:gap-2">
+                <Facebook className="w-3 h-3 hover:text-white/80 cursor-pointer" />
+                <Twitter className="w-3 h-3 hover:text-white/80 cursor-pointer" />
+                <Instagram className="w-3 h-3 hover:text-white/80 cursor-pointer" />
+                <Youtube className="w-3 h-3 hover:text-white/80 cursor-pointer" />
+                <Linkedin className="w-3 h-3 hover:text-white/80 cursor-pointer" />
               </div>
             </div>
           </div>
@@ -84,7 +87,8 @@ const Header = ({ onNetworkClick }: HeaderProps) => {
 
         {/* Navigation */}
         <nav className="mt-4 border-t border-primary-foreground/20 pt-4">
-          <ul className="flex items-center gap-6 text-sm">
+          {/* Desktop Navigation */}
+          <ul className="hidden md:flex items-center gap-6 text-sm">
             {navigationItems.map((item, index) => (
               <li key={index}>
                 <a 
@@ -96,6 +100,22 @@ const Header = ({ onNetworkClick }: HeaderProps) => {
               </li>
             ))}
           </ul>
+          
+          {/* Mobile Navigation - Horizontal Scroll */}
+          <div className="md:hidden overflow-x-auto scrollbar-hide">
+            <ul className="flex items-center gap-4 text-sm min-w-max pb-2">
+              {navigationItems.map((item, index) => (
+                <li key={index}>
+                  <a 
+                    href="#" 
+                    className="hover:text-white/80 transition-colors font-medium whitespace-nowrap"
+                  >
+                    {item}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </nav>
       </div>
     </header>

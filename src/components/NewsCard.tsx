@@ -7,44 +7,38 @@ interface NewsCardProps {
   image: string;
   category: "News" | "Spotlight" | "Lifestyle" | "Arena" | "Ekobiz";
   timeAgo: string;
-  isLarge?: boolean;
+  excerpt: string;
   className?: string;
 }
 
-const NewsCard = ({ title, image, category, timeAgo, isLarge = false, className }: NewsCardProps) => {
+const NewsCard = ({ title, image, category, timeAgo, excerpt, className }: NewsCardProps) => {
   return (
-    <article className={cn("group cursor-pointer", className)}>
-      <div className="relative overflow-hidden rounded-lg">
+    <article className={cn("group cursor-pointer bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300", className)}>
+      <div className="relative overflow-hidden rounded-t-lg">
         <img 
           src={image} 
           alt={title}
-          className={cn(
-            "w-full object-cover transition-transform duration-300 group-hover:scale-105",
-            isLarge ? "h-64 md:h-96" : "h-48"
-          )}
+          className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
         />
-        
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
         
         {/* Category badge */}
         <div className="absolute top-3 left-3">
           <CategoryBadge category={category} />
         </div>
+      </div>
+      
+      <div className="p-4">
+        <h3 className="font-bold text-lg leading-tight text-gray-900 group-hover:text-primary transition-colors mb-2">
+          {title}
+        </h3>
         
-        {/* Content overlay */}
-        <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-          <h3 className={cn(
-            "font-bold leading-tight group-hover:text-white/90 transition-colors",
-            isLarge ? "text-xl md:text-2xl mb-3" : "text-lg mb-2"
-          )}>
-            {title}
-          </h3>
-          
-          <div className="flex items-center gap-2 text-sm text-white/80">
-            <Clock className="w-4 h-4" />
-            <span>{timeAgo}</span>
-          </div>
+        <p className="text-gray-600 text-sm leading-relaxed mb-3 line-clamp-2">
+          {excerpt}
+        </p>
+        
+        <div className="flex items-center gap-2 text-sm text-gray-500">
+          <Clock className="w-4 h-4" />
+          <span>{timeAgo}</span>
         </div>
       </div>
     </article>
